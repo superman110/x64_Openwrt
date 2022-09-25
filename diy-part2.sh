@@ -16,6 +16,7 @@ sed -i 's/192.168.1.1/192.168.1.11/g' package/base-files/files/bin/config_genera
 #添加额外软件包
 
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-bypass package/luci-app-bypass
+sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-bypass/Makefile
 
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-openclash package/luci-app-openclash
 # 编译 po2lmo (如果有po2lmo可跳过)
@@ -45,6 +46,8 @@ svn co https://github.com/kenzok8/small-package/trunk/v2raya package/v2raya
 svn co https://github.com/kenzok8/small-package/trunk/xray-core package/xray-core
 svn co https://github.com/kenzok8/small-package/trunk/xray-plugin package/xray-plugin
 
+svn co https://github.com/kenzok8/small-package/trunk/luci-lib-taskd package/luci-lib-taskd
+svn co https://github.com/kenzok8/small-package/trunk/lua-neturl package/lua-neturl
 svn co https://github.com/kenzok8/small-package/trunk/lua-maxminddb package/lua-maxminddb
 svn co https://github.com/kenzok8/small-package/trunk/microsocks package/microsocks
 svn co https://github.com/kenzok8/small-package/trunk/naiveproxy package/naiveproxy
