@@ -47,6 +47,8 @@ svn co https://github.com/kenzok8/small-package/trunk/xray-core package/xray-cor
 svn co https://github.com/kenzok8/small-package/trunk/xray-plugin package/xray-plugin
 
 svn co https://github.com/kenzok8/small-package/trunk/luci-lib-taskd package/luci-lib-taskd
+svn co https://github.com/kenzok8/small-package/trunk/luci-lib-xterm package/luci-lib-xterm
+svn co https://github.com/kenzok8/small-package/trunk/taskd package/taskd
 svn co https://github.com/kenzok8/small-package/trunk/lua-neturl package/lua-neturl
 svn co https://github.com/kenzok8/small-package/trunk/lua-maxminddb package/lua-maxminddb
 svn co https://github.com/kenzok8/small-package/trunk/microsocks package/microsocks
