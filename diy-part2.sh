@@ -13,6 +13,9 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.1.11/g' package/base-files/files/bin/config_generate
 
+# Modify network card display
+sed -i 's/grep '^[e]' | grep -v "@" | grep -v "\."/grep '^eth' | awk -F"@" '{print $1}'/g' package/lean/autocore/files/x86/sbin/ethinfo
+
 #添加额外软件包
 
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-bypass package/luci-app-bypass
