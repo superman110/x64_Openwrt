@@ -14,7 +14,10 @@
 sed -i 's/192.168.1.1/192.168.1.11/g' package/base-files/files/bin/config_generate
 
 # Modify network card display
-sed -i 's/grep '^[e]' | grep -v "@" | grep -v "\."/grep '^eth' | awk -F"@" '{print $1}'/g' package/lean/autocore/files/x86/sbin/ethinfo
+sed -i 's/\[e\]/eth/g' package/lean/autocore/files/x86/sbin/ethinfo
+sed -i 's/grep \-v \"\@/awk \-F\"\@/g' package/lean/autocore/files/x86/sbin/ethinfo
+sed -i "s/| grep \-v /\'\{print \$1\}\'/g" package/lean/autocore/files/x86/sbin/ethinfo
+sed -i 's/\"\\\.\"//g' package/lean/autocore/files/x86/sbin/ethinfo
 
 #添加额外软件包
 
