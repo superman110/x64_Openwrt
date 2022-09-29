@@ -79,7 +79,6 @@ sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-store/Makefile
 
 # luci-app-irqbalance
 svn co https://github.com/QiuSimons/OpenWrt-Add/trunk/luci-app-irqbalance package/luci-app-irqbalance
-sed -i "s/enabled '0'/enabled '1'/g" package/luci-app-irqbalance
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
