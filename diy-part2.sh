@@ -19,6 +19,10 @@ sed -i 's/grep \-v \"\@/awk \-F\"\@/g' package/lean/autocore/files/x86/sbin/ethi
 sed -i "s/| grep \-v /\'\{print \$1\}\'/g" package/lean/autocore/files/x86/sbin/ethinfo
 sed -i 's/\"\\\.\"//g' package/lean/autocore/files/x86/sbin/ethinfo
 
+#BBR
+sed -i '$ a net.core.default_qdisc=fq' package/base-files/files/etc/sysctl.conf
+sed -i '$ a net.ipv4.tcp_congestion_control=bbr' package/base-files/files/etc/sysctl.conf
+
 #添加额外软件包
 
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-bypass package/luci-app-bypass
