@@ -19,9 +19,16 @@ sed -i 's/grep \-v \"\@/awk \-F\"\@/g' package/lean/autocore/files/x86/sbin/ethi
 sed -i "s/| grep \-v /\'\{print \$1\}\'/g" package/lean/autocore/files/x86/sbin/ethinfo
 sed -i 's/\"\\\.\"//g' package/lean/autocore/files/x86/sbin/ethinfo
 
-#BBR
-sed -i '$ a net.core.default_qdisc=fq' package/base-files/files/etc/sysctl.conf
-sed -i '$ a net.ipv4.tcp_congestion_control=bbr' package/base-files/files/etc/sysctl.conf
+#Optimize network parameters
+sed -i '$ a net.netfilter.nf_conntrack_icmp_timeout=10' package/base-files/files/etc/sysctl.conf
+sed -i '$ a net.netfilter.nf_conntrack_tcp_timeout_syn_recv=5' package/base-files/files/etc/sysctl.conf
+sed -i '$ a net.netfilter.nf_conntrack_tcp_timeout_syn_sent=5' package/base-files/files/etc/sysctl.conf
+sed -i '$ a net.netfilter.nf_conntrack_tcp_timeout_established=600' package/base-files/files/etc/sysctl.conf
+sed -i '$ a net.netfilter.nf_conntrack_tcp_timeout_fin_wait=10' package/base-files/files/etc/sysctl.conf
+sed -i '$ a net.netfilter.nf_conntrack_tcp_timeout_time_wait=10' package/base-files/files/etc/sysctl.conf
+sed -i '$ a net.netfilter.nf_conntrack_tcp_timeout_close_wait=10' package/base-files/files/etc/sysctl.conf
+sed -i '$ a net.netfilter.nf_conntrack_tcp_timeout_last_ack=10' package/base-files/files/etc/sysctl.conf
+sed -i '$ a net.core.somaxconn=65535' package/base-files/files/etc/sysctl.conf
 
 #添加额外软件包
 
