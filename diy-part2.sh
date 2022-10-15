@@ -60,7 +60,7 @@ svn co https://github.com/kenzok8/small-package/trunk/trojan-go package/trojan-g
 svn co https://github.com/kenzok8/small-package/trunk/trojan-plus package/trojan-plus
 svn co https://github.com/kenzok8/small-package/trunk/trojan package/trojan
 svn co https://github.com/kenzok8/small-package/trunk/v2ray-core package/v2ray-core
-svn co https://github.com/kenzok8/small-package/trunk/v2ray-geodata package/v2ray-geodata
+#svn co https://github.com/kenzok8/small-package/trunk/v2ray-geodata package/v2ray-geodata
 svn co https://github.com/kenzok8/small-package/trunk/v2ray-plugin package/v2ray-plugin
 svn co https://github.com/kenzok8/small-package/trunk/v2raya package/v2raya
 svn co https://github.com/kenzok8/small-package/trunk/xray-core package/xray-core
@@ -85,8 +85,8 @@ svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/
 
 #mosdns
 rm -rf feeds/packages/net/mosdns
-git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
-#git clone https://github.com/sbwml/v2ray-geodata package/geodata
+svn co https://github.com/sbwml/luci-app-mosdns package/mosdns
+svn co clone https://github.com/sbwml/v2ray-geodata package/geodata
 #svn co https://github.com/kenzok8/small-package/trunk/mosdns package/mosdns
 #svn co https://github.com/kenzok8/small-package/trunk/luci-app-mosdns package/luci-app-mosdns
 
