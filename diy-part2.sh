@@ -84,6 +84,7 @@ svn co https://github.com/kenzok8/small-package/trunk/smartdns package/smartdns
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
 
 #mosdns
+rm -rf feeds/packages/net/mosdns
 svn co https://github.com/kenzok8/small-package/trunk/mosdns package/mosdns
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-mosdns package/luci-app-mosdns
 
@@ -93,6 +94,7 @@ sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-store/Makefile
 
 # luci-app-irqbalance
 svn co https://github.com/QiuSimons/OpenWrt-Add/trunk/luci-app-irqbalance package/luci-app-irqbalance
+sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
