@@ -85,8 +85,10 @@ svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/
 
 #mosdns
 rm -rf feeds/packages/net/mosdns
-svn co https://github.com/kenzok8/small-package/trunk/mosdns package/mosdns
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-mosdns package/luci-app-mosdns
+git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
+#git clone https://github.com/sbwml/v2ray-geodata package/geodata
+#svn co https://github.com/kenzok8/small-package/trunk/mosdns package/mosdns
+#svn co https://github.com/kenzok8/small-package/trunk/luci-app-mosdns package/luci-app-mosdns
 
 #添加istore
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-store package/luci-app-store
