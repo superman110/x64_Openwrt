@@ -16,11 +16,12 @@ sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.19/g' target/linux/x86/Makefi
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.1.11/g' package/base-files/files/bin/config_generate
 
-# Modify network card display
+# Modify network display
 sed -i 's/\[e\]/eth/g' package/lean/autocore/files/x86/sbin/ethinfo
 sed -i 's/grep \-v \"\@/awk \-F\"\@/g' package/lean/autocore/files/x86/sbin/ethinfo
 sed -i "s/| grep \-v /\'\{print \$1\}\'/g" package/lean/autocore/files/x86/sbin/ethinfo
 sed -i 's/\"\\\.\"//g' package/lean/autocore/files/x86/sbin/ethinfo
+sed -i 's/4096/65535/g' package/lean/autocore/files/x86/index.htm
 
 #Optimize network parameters
 sed -i '$ a net.netfilter.nf_conntrack_icmp_timeout=10' package/base-files/files/etc/sysctl.conf
