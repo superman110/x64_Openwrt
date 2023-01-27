@@ -16,6 +16,9 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.1.11/g' package/base-files/files/bin/config_generate
 
+# Disable IPv6
+sed -i 's/def_bool y/def_bool n/g' config/Config-build.in
+
 # Modify network display
 sed -i 's/\[e\]/eth/g' package/lean/autocore/files/x86/sbin/ethinfo
 sed -i 's/grep \-v \"\@/awk \-F\"\@/g' package/lean/autocore/files/x86/sbin/ethinfo
