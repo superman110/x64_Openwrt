@@ -17,7 +17,7 @@
 sed -i 's/192.168.1.1/192.168.1.11/g' package/base-files/files/bin/config_generate
 
 # Disable IPv6
-sed -i 's/def_bool y/def_bool n/g' config/Config-build.in
+#sed -i 's/def_bool y/def_bool n/g' config/Config-build.in
 
 # Modify network display
 sed -i 's/\[e\]/eth/g' package/lean/autocore/files/x86/sbin/ethinfo
@@ -81,11 +81,13 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/redsocks2 package/redso
 svn co https://github.com/kenzok8/small-package/trunk/tcping package/tcping
 
 #添加adguardhome
-#svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
+rm -rf feeds/packages/net/adguardhome
+svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
 
 #添加smartdns
-#svn co https://github.com/kenzok8/small-package/trunk/smartdns package/smartdns
-#svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
+rm -rf feeds/packages/net/smartdns
+svn co https://github.com/kenzok8/small-package/trunk/smartdns package/smartdns
+svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
 
 #mosdns
 #rm -rf feeds/packages/net/mosdns
