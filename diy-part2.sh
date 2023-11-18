@@ -76,12 +76,13 @@ svn co https://github.com/kenzok8/small-package/trunk/taskd package/taskd
 svn co https://github.com/kenzok8/small-package/trunk/lua-neturl package/lua-neturl
 svn co https://github.com/kenzok8/small-package/trunk/lua-maxminddb package/lua-maxminddb
 svn co https://github.com/kenzok8/small-package/trunk/microsocks package/microsocks
+svn co https://github.com/kenzok8/small-package/trunk/gn package/gn
 svn co https://github.com/kenzok8/small-package/trunk/naiveproxy package/naiveproxy
 svn co https://github.com/kiddin9/openwrt-packages/trunk/redsocks2 package/redsocks2
 svn co https://github.com/kenzok8/small-package/trunk/tcping package/tcping
 
 #添加adguardhome
-rm -rf feeds/packages/net/adguardhome
+#rm -rf feeds/packages/net/adguardhome
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
 
 #添加smartdns
