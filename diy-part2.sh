@@ -83,12 +83,12 @@ svn co https://github.com/kenzok8/small-package/trunk/tcping package/tcping
 
 #添加adguardhome
 #rm -rf feeds/packages/net/adguardhome
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
+#svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
 
 #添加smartdns
-rm -rf feeds/packages/net/smartdns
-svn co https://github.com/kenzok8/small-package/trunk/smartdns package/smartdns
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
+#rm -rf feeds/packages/net/smartdns
+#svn co https://github.com/kenzok8/small-package/trunk/smartdns package/smartdns
+#svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
 
 #mosdns
 #rm -rf feeds/packages/net/mosdns
