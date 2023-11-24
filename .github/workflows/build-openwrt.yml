@@ -27,8 +27,7 @@ env:
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: true
-  UPLOAD_RELEASE: true
+  UPLOAD_FIRMWARE: false
   TZ: Asia/Shanghai
   FILE_NAME: x86_64
   PRODUCT_NAME: x86_64
@@ -39,7 +38,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@main
+      uses: actions/checkout@master
 
     - name: Initialization environment
       env:
@@ -160,7 +159,7 @@ jobs:
         df -Th
 
     - name: Upload bin directory
-      uses: actions/upload-artifact@main
+      uses: actions/upload-artifact@master
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
@@ -197,7 +196,6 @@ jobs:
         token: ${{ secrets.GH_TOKEN }}
         body: |
           This is OpenWrt X64 firmware for PVE LXC
-          * Firmware information
           Default IP: 192.168.1.11
           Default username: root
           Default password: password
