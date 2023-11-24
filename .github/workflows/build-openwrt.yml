@@ -193,7 +193,7 @@ jobs:
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         commit: master
-        token: ${{ secrets.GH_TOKEN }}
+        token: ${{ secrets.UPLOAD_RELEASES_TOKEN }}
         body: |
           This is OpenWrt X64 firmware for PVE LXC
           Default IP: 192.168.1.11
