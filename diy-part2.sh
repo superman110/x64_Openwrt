@@ -37,6 +37,7 @@ sed -i '$ a net.netfilter.nf_conntrack_tcp_timeout_close_wait=10' package/base-f
 sed -i '$ a net.netfilter.nf_conntrack_tcp_timeout_last_ack=10' package/base-files/files/etc/sysctl.conf
 sed -i '$ a net.core.somaxconn=65535' package/base-files/files/etc/sysctl.conf
 
+
 #添加额外软件包
 
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-bypass package/luci-app-bypass
@@ -86,20 +87,20 @@ svn co https://github.com/kenzok8/small-package/trunk/tcping package/tcping
 #svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
 
 #添加smartdns
-#rm -rf feeds/packages/net/smartdns
-#svn co https://github.com/kenzok8/small-package/trunk/smartdns package/smartdns
-#svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
+rm -rf feeds/packages/net/smartdns
+rm -rf feeds/luci/applications/luci-app-smartdns
+git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
+git clone --depth=1 https://github.com/pymumu/openwrt-smartdns package/smartdns
 
-#mosdns
-#rm -rf feeds/packages/net/mosdns
-#svn co https://github.com/sbwml/luci-app-mosdns package/mosdns
-#svn co https://github.com/sbwml/v2ray-geodata package/geodata
-#svn co https://github.com/kenzok8/small-package/trunk/mosdns package/mosdns
-#svn co https://github.com/kenzok8/small-package/trunk/luci-app-mosdns package/luci-app-mosdns
+#添加mosdns
+rm -rf feeds/packages/net/mosdns
+rm -rf feeds/luci/applications/luci-app-mosdns
+svn export https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns package/luci-app-mosdns
+svn export https://github.com/sbwml/luci-app-mosdns/trunk/mosdns package/mosdns
 
 #添加istore
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-store package/luci-app-store
-sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-store/Makefile
+svn export https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
+svn export https://github.com/linkease/istore/trunk/luci package/luci-app-store
 
 # luci-app-irqbalance
 svn co https://github.com/QiuSimons/OpenWrt-Add/trunk/luci-app-irqbalance package/luci-app-irqbalance
