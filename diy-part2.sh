@@ -43,12 +43,6 @@ sed -i '$ a net.core.somaxconn=65535' package/base-files/files/etc/sysctl.conf
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-bypass package/luci-app-bypass
 sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-bypass/Makefile
 
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-openclash package/luci-app-openclash
-# 编译 po2lmo (如果有po2lmo可跳过)
-pushd package/luci-app-openclash/tools/po2lmo
-make && sudo make install
-popd
-
 svn co https://github.com/kenzok8/small-package/trunk/brook package/brook
 svn co https://github.com/kenzok8/small-package/trunk/chinadns-ng package/chinadns-ng
 svn co https://github.com/kenzok8/small-package/trunk/dns2socks package/dns2socks
@@ -82,9 +76,33 @@ svn co https://github.com/kenzok8/small-package/trunk/naiveproxy package/naivepr
 svn co https://github.com/kenzok8/small-package/trunk/redsocks2 package/redsocks2
 svn co https://github.com/kenzok8/small-package/trunk/tcping package/tcping
 
+#添加openclash
+svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+# 编译 po2lmo (如果有po2lmo可跳过)
+pushd package/luci-app-openclash/tools/po2lmo
+make && sudo make install
+popd
+
+mkdir -p files/etc/openclash/core
+CLASH_DEV_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-${1}.tar.gz"
+CLASH_TUN_URL=$(curl -fsSL https://api.github.com/repos/vernesong/OpenClash/contents/master/premium\?ref\=core | grep download_url | grep $1 | awk -F '"' '{print $4}')
+CLASH_META_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-${1}.tar.gz"
+GEOIP_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
+GEOSITE_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
+wget -qO- $CLASH_DEV_URL | tar xOvz > files/etc/openclash/core/clash
+wget -qO- $CLASH_TUN_URL | gunzip -c > files/etc/openclash/core/clash_tun
+wget -qO- $CLASH_META_URL | tar xOvz > files/etc/openclash/core/clash_meta
+wget -qO- $GEOIP_URL > files/etc/openclash/GeoIP.dat
+wget -qO- $GEOSITE_URL > files/etc/openclash/GeoSite.dat
+chmod +x files/etc/openclash/core/clash*
+
 #添加adguardhome
-#rm -rf feeds/packages/net/adguardhome
-#svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
+rm -rf feeds/packages/net/adguardhome
+git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
+mkdir -p files/usr/bin/AdGuardHome
+AGH_CORE=$(curl -sL https://api.github.com/repos/AdguardTeam/AdGuardHome/releases | grep /AdGuardHome_linux_${1} | awk -F '"' '{print $4}' | sed -n '1p')
+wget -qO- $AGH_CORE | tar xOvz > files/usr/bin/AdGuardHome/AdGuardHome
+chmod +x files/usr/bin/AdGuardHome/AdGuardHome
 
 #添加smartdns
 rm -rf feeds/packages/net/smartdns
