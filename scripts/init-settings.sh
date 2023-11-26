@@ -11,4 +11,7 @@
 # uci set fstab.@global[0].check_fs=1
 # uci commit fstab
 
+#WEB后台无法打开
+sed -i 's/list listen_https/#list listen_https/g' /etc/config/uhttpd
+
 exit 0
