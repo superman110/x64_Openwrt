@@ -10,6 +10,7 @@ uci set network.lan.ip6assign=0
 uci set network.lan.delegate=0
 uci set dhcp.lan.dhcpv6=disabled
 uci set dhcp.lan.ra=disabled
+uci set dhcp.cfg01411c.filter_aaaa=1
 
 # Check file system during boot
 # uci set fstab.@global[0].check_fs=1
