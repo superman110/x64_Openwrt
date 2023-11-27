@@ -39,7 +39,13 @@ sed -i '$ a net.core.somaxconn=65535' package/base-files/files/etc/sysctl.conf
 
 
 #添加bypass
-svn export https://github.com/haiibo/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
+#svn export https://github.com/haiibo/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
+
+#添加helloworld
+git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
+
+#添加passwall2
+svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
 
 #添加openclash
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
