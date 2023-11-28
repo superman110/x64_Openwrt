@@ -96,7 +96,5 @@ svn export https://github.com/linkease/istore/trunk/luci package/luci-app-store
 svn co https://github.com/QiuSimons/OpenWrt-Add/trunk/luci-app-irqbalance package/luci-app-irqbalance
 sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
 
-sed -i '1i src-git haibo https://github.com/haiibo/openwrt-packages' feeds.conf.default
-
 ./scripts/feeds update -a
 ./scripts/feeds install -a
