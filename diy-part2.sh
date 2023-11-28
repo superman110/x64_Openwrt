@@ -38,11 +38,11 @@ sed -i '$ a net.netfilter.nf_conntrack_tcp_timeout_last_ack=10' package/base-fil
 sed -i '$ a net.core.somaxconn=65535' package/base-files/files/etc/sysctl.conf
 
 
-#添加bypass
-#svn export https://github.com/haiibo/openwrt-packages/trunk/luci-app-bypass package/luci-app-bypass
+git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 
 #添加helloworld
-svn export https://github.com/haiibo/packages/trunk/luci-app-vssr package/luci-app-vssr
+git clone https://github.com/jerrykuku/luci-app-vssr.git  package/luci-app-vssr
 
 #添加passwall2
 svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
