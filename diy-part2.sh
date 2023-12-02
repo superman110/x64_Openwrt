@@ -37,9 +37,14 @@ sed -i '$ a net.netfilter.nf_conntrack_tcp_timeout_close_wait=10' package/base-f
 sed -i '$ a net.netfilter.nf_conntrack_tcp_timeout_last_ack=10' package/base-files/files/etc/sysctl.conf
 sed -i '$ a net.core.somaxconn=65535' package/base-files/files/etc/sysctl.conf
 
+
 echo '
 CONFIG_X86_INTEL_PSTATE=y
 ' >>./target/linux/x86/config-6.1
+
+#openssl 1.1.1
+rm -rf package/libs/openssl
+svn export https://github.com/openwrt/openwrt/tree/openwrt-22.03/package/libs/openssl package/libs/openssl
 
 #添加ssr-plus
 git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
