@@ -44,7 +44,7 @@ CONFIG_X86_INTEL_PSTATE=y
 
 #openssl 1.1.1
 rm -rf package/libs/openssl
-svn export -r openwrt-22.03 https://github.com/openwrt/openwrt/trunk/package/libs/openssl package/libs/openssl
+svn export https://github.com/openwrt/openwrt/branches/openwrt-22.03/package/libs/openssl package/libs/openssl
 
 #添加ssr-plus
 git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
